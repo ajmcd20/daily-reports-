@@ -9,7 +9,7 @@ for t in TICKERS:
   lines.append(f"\n{t}")
   lines += [f"-{e.title}" for e in f.entries[:5]]
 
-requests.post(
+r = requests.post(
   f"https://ntfy.sh/{TOPIC}",
   data="\n".join(lines).encode(),
   headers={"Title": "Equity headlines"},
