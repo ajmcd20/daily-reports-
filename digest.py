@@ -1,7 +1,7 @@
 import os, requests, feedparser
 
 TICKERS = ["VWRP.L","GCTS","CMPS","AAPL"]
-TOPIC = os.environ["NFTY_TOPIC"]
+TOPIC = os.environ["NTFY_TOPIC"]
 
 lines = []
 for t in TICKERS:
@@ -10,7 +10,9 @@ for t in TICKERS:
   lines += [f"-{e.title}" for e in f.entries[:5]]
 
 requests.post(
-  f"https://nfty.sh/{TOPIC}",
+  f"https://ntfy.sh/{TOPIC}",
   data="\n".join(lines).encode(),
   headers={"Title": "Equity headlines"},
 )
+print(len(lines), "lines;", r.status_code, r.text[:200])
+r.raise_for_status()
