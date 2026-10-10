@@ -2,6 +2,8 @@ import os, requests, feedparser
 
 TICKERS = ["VWRP.L","GCTS","CMPS","AAPL"]
 TOPIC = os.environ["NTFY_TOPIC"]
+if not TOPIC:
+  raise SystemExit("NTFY_TOPIC is empty: Check the repoo secret name and tab")
 
 lines = []
 for t in TICKERS:
