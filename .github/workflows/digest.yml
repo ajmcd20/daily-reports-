@@ -27,4 +27,4 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python digest.py
         env:
-          NFTY_TOPIC: ${{ secrets.NFTY_TOPIC }}
+          NFTY_TOPIC: ${{ secrets.NTFY_TOPIC }}
