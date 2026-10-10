@@ -1,6 +1,6 @@
 import os, requests, feedparser
 
-TICKERS = ["VWRP","GCTS","RPIL"]
+TICKERS = ["VWRP.L","GCTS","CMPS","AAPL"]
 TOPIC = os.environ["NFTY_TOPIC"]
 
 lines = []
